@@ -1,0 +1,88 @@
+.synthContainer {
+	display: inline-block;
+	width: 400px;
+	padding: 10px 0;
+	border: 4px solid rgb(100, 100, 120);
+	border-radius: 20px;
+	text-align: center;
+}
+
+.synthBanner {
+	padding: 10px 0;
+	font-size: 18px;
+}
+
+.powerControl {
+	height: 40px;
+	padding: 5px 10px;
+}
+
+.oscillatorContainer {
+	border-bottom: 1px solid;
+}
+.oscillatorParamsContainer, .lfoParamsContainer {
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
+}
+.lfoParamsContainer {
+	height: 130px;
+}
+.frequencyControl, .waveformControl, .levelControl, .panControl {
+	height: 58px;
+	padding: 5px 10px;
+}
+.powerControl .mat-form-field, .frequencyControl .mat-form-field,
+.levelControl .mat-form-field, .panControl .mat-form-field {
+	height: 58px;
+	width: 120px;
+}
+.frequencyControl .mat-form-field {
+	height: 58px;
+	width: 120px;
+}
+.waveformControl .mat-form-field {
+	height: 58px;
+	width: 120px;
+}
+.levelControl .mat-form-field {
+	height: 58px;
+	width: 120px;
+}
+.panControl .mat-form-field {
+	height: 58px;
+	width: 120px;
+}
+.controlLabel {
+	display: inline-block;
+	padding-right: 10px;
+	text-align: right;
+	height: 58px;
+	width: 45px;
+}
+//
+// 	.synthFrequency
+// 		width: 100px
+// 	.synthWaveform
+// 		width: 100px
+// 		margin-left: 50px
+//
+.modulationContainer {
+	padding: 0 10px;
+}
+.modulationContainer p {
+	margin-bottom: 5px;
+	padding: 0;
+}
+.amPeriod, .amPercent, .fmPeriod, .fmPercent {
+	min-height: 80px;
+}
+//
+// 	.modulationAmplitudeDiv
+// 		margin-bottom: 5px
+// 	.modulationWaveDiv
+// 		margin-bottom: 5px
+// 	.modulationPercentDiv
+// 		display: inline-block
+// 	.modulationPeriodDiv
+// 		display: inline-block

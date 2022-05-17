@@ -1,0 +1,113 @@
+<div class="synthContainer mat-typography">
+	<div class="synthBanner">
+		WebAudio Synth Module
+	</div>
+
+	<div class="oscillatorContainer">
+		<div class="powerControl">
+			<mat-slide-toggle #powerSwitch class="powerSwitch" color="primary" (click)="togglePower()" [(ngModel)]="synthPower"></mat-slide-toggle> &nbsp;{{synthPower ? ' ON' : 'OFF'}}
+		</div>
+		<div class="oscillatorParamsContainer">
+			<div class="oscillatorControls">
+				<div class="frequencyControl">
+					<mat-form-field class="synthFrequency" floatLabel="always">
+						<input matInput placeholder="Frequency"
+						type="number" min="20.0" max="20000.0" step="0.01"
+						[(ngModel)]="synthFrequency" (blur)="updateSynthFrequency()" (keyup.enter)="updateSynthFrequency()" />
+					</mat-form-field>
+				</div>
+				<div class="waveformControl">
+					<mat-form-field class="synthWaveform" floatLabel="always">
+						<mat-select placeholder="Synth waveform..."
+						disableOptionCentering
+						[(ngModel)] = "synthWaveform"
+						(selectionChange) = "updateSynthWaveform()">
+						<mat-option *ngFor="let wave of waveforms"  [value]="wave">
+							{{wave}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				</div>
+			</div>
+			<div class="oscillatorControls">
+				<div class="levelControl">
+					<div class="controlLabel">
+						Level:
+					</div>
+					<mat-slider class="synthLevel" color="primary" thumbLabel min="0" max="1" step="0.05" [(ngModel)]="synthGain" (change)="synthLevel.gain.value = synthGain;"></mat-slider>
+				</div>
+				<div class="panControl">
+					<div class="controlLabel">
+						pan:
+					</div>
+					<mat-slider class="synthPan" color="primary" thumbLabel min="-1" max="1" step="0.05" [(ngModel)]="synthPan" (change)="synthPanner.pan.value = synthPan;"></mat-slider>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modulationContainer">
+		<div class="synthBanner">
+			LFO Modulation
+		</div>
+
+		<div class="powerControl">
+			AM Modulation:&nbsp; <mat-slide-toggle class="powerSwitch" color="primary" (click)="toggleAmPower()"></mat-slide-toggle> &nbsp;{{amIsEngaged ? ' ON' : 'OFF'}}
+		</div>
+
+		<div class="lfoParamsContainer">
+			<div class="waveformControl">
+				<mat-form-field class="synthWaveform" floatLabel="always">
+					<mat-select placeholder="LFO AM waveform..."
+						disableOptionCentering
+						[(ngModel)] = "amWaveform"
+						(selectionChange) = "updateAmWaveform()">
+						<mat-option *ngFor="let wave of waveforms"  [value]="wave">
+							{{wave}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="levelControl">
+				<p>Period</p>
+				<p>{{amPeriod}} sec.</p>
+				<mat-slider class="amPeriod" color="primary" vertical thumbLabel min="0.2" max="10" step="0.1" [(ngModel)]="amPeriod" (change)="updateAmPeriod()"></mat-slider>
+			</div>
+			<div class="levelControl">
+				<p>Amount</p>
+				<p>{{amPercent}}%</p>
+				<mat-slider class="amPercent" color="primary" vertical thumbLabel min="0" max="100" step="1" [(ngModel)]="amPercent" (change)="updateAmGain()"></mat-slider>
+			</div>
+		</div>
+
+		<div class="powerControl">
+			Frequency Modulation:&nbsp; <mat-slide-toggle class="powerSwitch" color="primary" (click)="toggleFmPower()"></mat-slide-toggle> &nbsp;{{fmIsEngaged ? ' ON' : 'OFF'}}
+		</div>
+
+		<div class="lfoParamsContainer">
+			<div class="waveformControl">
+				<mat-form-field class="synthWaveform" floatLabel="always">
+					<mat-select placeholder="LFO FM waveform..."
+						disableOptionCentering
+						[(ngModel)] = "fmWaveform"
+						(selectionChange) = "updateFmWaveform()">
+						<mat-option *ngFor="let wave of waveforms"  [value]="wave">
+							{{wave}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+			<div class="levelControl">
+				<p>Period</p>
+				<p>{{fmPeriod}} sec.</p>
+				<mat-slider class="fmPercent" color="primary" vertical thumbLabel min="0.2" max="10" step="0.1" [(ngModel)]="fmPeriod" (change)="updateFmPeriod()"></mat-slider>
+			</div>
+			<div class="levelControl">
+				<p>Amount</p>
+				<p>{{fmPercent}}%</p>
+				<mat-slider class="fmPercent" color="primary" vertical thumbLabel min="0" max="100" step="1" [(ngModel)]="fmPercent" (change)="updateFmGain()"></mat-slider>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,94 @@
+
+<div class="wrapper mat-typography">
+	<h1>Synth Component Demo</h1>
+	<button class="helpButton" mat-icon-button color="primary" (click)="openHelp()"><mat-icon>help</mat-icon></button>
+	<div class="stereoSynthContainer">
+		<stereo-synth #synth1 [ctx]="audioCtx1" [dest]="audioCtx1.destination"></stereo-synth>
+		<stereo-synth #synth2 [ctx]="audioCtx2" [dest]="audioCtx2.destination"></stereo-synth>
+	</div>
+	<div class="helpContainer" *ngIf="showHelp">
+		<button mat-raised-button color="primary" (click)="closeHelp()">Close</button>
+		<h1>An Angular Stereo Synth</h1>
+
+		<h3>Setup</h3>
+
+		<p class="helpText">
+			This is a drop-in stereo synth for angular/angular material. To use just copy the 'synth' folder into your app code. You also need angular material and either a pre-built theme or one of the themes from 'synth/material/themes/' or your own custom theme. The component has two inputs: [ctx]="yourAudioContext" and [dest]="yourDestination". The destination could be as simple as ctx.destination for the speakers/headphones OR a pannerNode or splitterNode for complex routing to build say a sequencer.
+		</p>
+
+		<p class="helpCode">
+			// using a custom theme in styles.scss, also add fonts for ligature icons... <br>
+			@use "./app/material/themes/brick-light.scss" as theme;
+	    @use "./app/material/fonts/material-fonts.css";
+
+		  &lt;!-- adding it to your app...--&gt;<br>
+		  &lt;stereo-synth #synth1 [ctx]="myCtx1" [dest]="myDest1"&gt;&lt;/stereo-synth&gt;<br><br>
+
+			// inside app-component.ts or some service.ts<br>
+		    <span class="tab20"></span>.<br>
+		    <span class="tab20"></span>.<br>
+		    <span class="tab20"></span>.<br>
+		  export class AppComponent implements OnInit {{'{'}}<br>
+		    <span class="tab20"></span>myCtx1;<br>
+		    <span class="tab20"></span>myDest1;<br>
+		    <span class="tab20"></span>@ViewChild('synth1') synth1: ElementRef;<span class="tab20"></span><span class="tab20"></span>// just in case you need to reference the DOM el...<br><br>
+
+		    <span class="tab20"></span>constructor() {{'{}'}}<br><br>
+
+		    <span class="tab20"></span>ngOnInit() {{'{'}}<br>
+		      <span class="tab40"></span>this.myCtx1 = new (window as any).AudioContext();<br>
+		      <span class="tab40"></span>this.myDest1 = this.myCtx.destination;<span class="tab20"></span><span class="tab20"></span>// or some splitter or panner...<br>
+		    <span class="tab20"></span>{{'}'}}
+		</p>
+
+		<h3>Concepts</h3>
+
+		<p class="helpText">
+			The synth contains three oscillatorNodes - synthOscillator is the source generator, amLfoOscillator can periodically control the source level, fmLfoOscillator can periodically control the source frequency. The source is connected to an on/off gainNode and then connected to a gainNode and the gainNode is connected to a pannerNode and finally connected to the destination. The following diagram shows the node connections:
+		</p>
+
+		<img src="assets/synth-routing.png">
+
+		<p class="helpText">
+			Each oscillator has a selection of waveshapes: sine, triangle, sawtooth, and square. The source frequency is controlled by an &lt;input&gt; with a range of 20hz to 20000hz. Both modulation LFO's have a 'percent' fader controlling how much of the gain/frequency is changed and a 'period' fader to control the frequency from 5hz to 0.1hz (ten seconds). Modulations can be toggled on/off. AM modulation will change the level from amPercent to the outputLevel and can go all the way from 0 to outputLevel. FM modulation will change the output frequency both plus and minus the percent * outputFrequency.
+		</p>
+			These synths are mostly meant to provide 'atmosphere' type sounds, but they could easily be used in a sequencer as the 'tone block' with proper filtering for attack and decay. There would be one synth for each note value in the sequencer.
+		<p>
+		</p>
+
+		<h3>A Simple Example</h3>
+
+		<p class="helpText">
+			The example app has two synths connected to the speakers/headphones. Use good quality headphones or good studio monitors to actually hear low frequencies. My el-cheapo speakers cut out at around 90hz, My phones are Tascam TH-02 and let me hear 20hz (my AKG M-70 phones also work but I like the Tascam much better). Two suggested settings for atmosphere are:
+		</p>
+
+		<div class="helpCode">
+			<p>Example 1:</p>
+			<ul>
+				<li>synth1 frequency = 40, wave = sine, level = 0.35</li>
+				<li>synth1 AM = off</li>
+				<li>synth1 FM = on, wave = sine or triangle, amount = 15%, period = 2 seconds</li>
+				<li>synth2 frequency = 70, wave = sine, level = 0.2</li>
+				<li>synth2 AM = on. wave = triangle, period = 2 seconds</li>
+				<li>synth2 FM = on, wave = sine, amount = 6%, period = 1.1 seconds</li>
+			</ul>
+
+			<p>Example 2:</p>
+			<ul>
+				<li>synth1 frequency = 600, wave = sine, level = 0.05</li>
+				<li>synth1 AM = on, wave = square, amount = 100%, period = 1 seconds</li>
+				<li>synth1 FM = off</li>
+				<li>synth2 frequency = 200, wave = sine, level = 0.5</li>
+				<li>synth2 AM = on, wave = sine, amount = 80%, period = 1.2 seconds</li>
+				<li>synth2 FM = on, wave = sine, amount = 50%, period = 0.4 seconds</li>
+			</ul>
+
+		</div>
+
+		<p>Play with it and have fun...! And a very good place to start learning about the WebAudio API would be:</p>
+		<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Using_Web_Audio_API" target="_blank">
+			MDN Using Web Audio
+		</a>
+		<!-- <p>&nbsp;</p> -->
+	</div>
+</div>
