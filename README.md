@@ -43,7 +43,7 @@ Play with it and have fun...! And a very good place to start learning about the 
 
 ![App](public/synth.png)
 
-This is an Angular / Material app. Each synth is a drop-in component that can be added to your app. To use just copy the 'synth' folder into your app code. You will need to edit the HTML if your are not using Material to remove all the 'mat-this' and 'mdc-this' references. The widget collection is just: [button, select, input (number & slider)].
+This is an Angular / Material app. Each synth is a drop-in component that can be added to your app. To use just copy the 'synth' folder into your app code. You will need to edit the HTML if your are not using Material to remove all the 'mat-this' and 'mdc-that' references. The widget collection is just: [button, select, input (number & slider)].
 
 The component has two inputs: an 'AudioContext' and a 'Destination'. For a component to use the synth just import it and drop it into your component HTML:
 
@@ -57,6 +57,8 @@ The component has two inputs: an 'AudioContext' and a 'Destination'. For a compo
       .
       .
 export class myComponent {
+  document = inject(DOCUMENT);
+  window = document.defaultView;
   myCtx1;
   myDest1;
   // just in case you need to reference the DOM el...
