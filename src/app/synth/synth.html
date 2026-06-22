@@ -1,0 +1,135 @@
+<div class="synthContainer">
+	<div class="synthBanner">
+		WebAudio Synth Module
+	</div>
+
+	<!-- Main Oscillator... -->
+
+	<div class="powerControl">
+		<mat-slide-toggle #powerSwitch class="powerSwitch" [(ngModel)]="synthPower" (toggleChange)="togglePower()">{{synthPower() ? ' ON' : 'OFF'}}</mat-slide-toggle>
+	</div>
+
+		
+	<div class="controlContainer">
+		<div class="oscillatorControls">
+				<mat-form-field floatLabel="always">
+   				<mat-label>Set the Base Frequency...</mat-label>
+					<input matInput placeholder="Frequency" type="number" min="20.0" max="20000.0" step="0.01" [(ngModel)]="synthFrequency" (ngModelChange)="updateSynthFrequency()" (keyup.enter)="updateSynthFrequency()" />
+				</mat-form-field>
+				
+				<mat-form-field floatLabel="always">
+   				<mat-label>Set The Waveform...</mat-label>
+					<mat-select [(ngModel)]="synthCurrentWaveform" (selectionChange)="updateSynthWaveform()">
+						@for (wave of synthWaveforms; track $index) {
+							<mat-option [value]="wave">
+								{{wave}}
+							</mat-option>
+						}
+					</mat-select>
+				</mat-form-field>
+		</div>
+		<div class="oscillatorControls">
+			<div class="sliderHorizContainer">
+				Level:
+				<mat-slider min="0" max="1" step="0.1" discrete [displayWith]="formatSliderLabelGain">
+					<input  matSliderThumb [(ngModel)]="synthGain" (ngModelChange)="updateSynthLevel()">
+				</mat-slider>
+			</div>
+			
+			<div class="sliderHorizContainer">
+				Pan: L
+				<mat-slider min="-1" max="1" step="0.1" discrete [displayWith]="formatSliderLabelPan">
+					<input  matSliderThumb [(ngModel)]="synthPan" (ngModelChange)="updateSynthPanner()">
+				</mat-slider>
+				R
+			</div>
+		</div>
+	</div>
+
+	<hr>
+
+	<!-- LFO Modulation... -->
+
+	<!-- <div class="synthBanner">
+		LFO Modulation
+	</div> -->
+	
+	<div class="powerControl">
+		LFO AM Modulation
+		<mat-slide-toggle #powerSwitch class="powerSwitch" [(ngModel)]="amPower" (toggleChange)="toggleAMPower()">{{amPower() ? ' ON' : 'OFF'}}</mat-slide-toggle>
+	</div>
+
+	<div class="controlContainer">
+		<div class="oscillatorControls">
+			<mat-form-field floatLabel="always">
+	 				<mat-label>Set The Waveform...</mat-label>
+				<mat-select [(ngModel)]="amCurrentWaveform" (selectionChange)="updateAMWaveform()">
+					@for (wave of synthWaveforms; track $index) {
+						<mat-option [value]="wave">
+							{{wave}}
+						</mat-option>
+					}
+				</mat-select>
+			</mat-form-field>
+		</div>
+	
+		<div class="oscillatorControls">
+			<div class="sliderHorizContainer">
+				Mod %:
+				<mat-slider min="0" max="100" step="1" discrete [displayWith]="formatSliderLabelPercent">
+					<input  matSliderThumb [(ngModel)]="amGainPercent" (ngModelChange)="updateAMGain()">
+				</mat-slider>
+			</div>
+
+			<div class="sliderHorizContainer">
+				Freq:
+				<mat-slider min="0.1" max="10" step="0.1" discrete [displayWith]="formatSliderLabelFrequency">
+					<input  matSliderThumb [(ngModel)]="amPeriod" (ngModelChange)="updateAMPeriod()">
+				</mat-slider>
+			</div>
+		</div>
+	</div>
+
+<hr>
+
+	<!-- <div class="synthBanner">
+		FM Modulation
+	</div> -->
+	
+	<div class="powerControl">
+		LFO FM Modulation
+		<mat-slide-toggle #powerSwitch class="powerSwitch" [(ngModel)]="fmPower" (toggleChange)="toggleFMPower()">{{amPower() ? ' ON' : 'OFF'}}</mat-slide-toggle>
+	</div>
+
+	<div class="controlContainer">
+		<div class="oscillatorControls">
+			<mat-form-field floatLabel="always">
+	 				<mat-label>Set The Waveform...</mat-label>
+				<mat-select [(ngModel)]="fmCurrentWaveform" (selectionChange)="updateFMWaveform()">
+					@for (wave of synthWaveforms; track $index) {
+						<mat-option [value]="wave">
+							{{wave}}
+						</mat-option>
+					}
+				</mat-select>
+			</mat-form-field>
+		</div>
+	
+		<div class="oscillatorControls">
+			<div class="sliderHorizContainer">
+				Mod %:
+				<mat-slider min="0" max="100" step="1" discrete [displayWith]="formatSliderLabelPercent">
+					<input  matSliderThumb [(ngModel)]="fmGainPercent" (ngModelChange)="updateFMGain()">
+				</mat-slider>
+			</div>
+
+			<div class="sliderHorizContainer">
+				Freq:
+				<mat-slider min="0.1" max="10" step="0.1" discrete [displayWith]="formatSliderLabelFrequency">
+					<input  matSliderThumb [(ngModel)]="fmPeriod" (ngModelChange)="updateFMPeriod()">
+				</mat-slider>
+			</div>
+		</div>
+	</div>
+
+</div>

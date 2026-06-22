@@ -1,0 +1,436 @@
+@use '@angular/material' as mat;
+
+//-- material custom themes...
+//
+@use "./themes/BlueGreyTheme.scss" as blue-grey-theme;
+@use "./themes/BrickTheme.scss" as brick-theme;
+@use "./themes/BrownTheme.scss" as brown-theme;
+@use "./themes/GreenTheme.scss" as green-theme;
+@use "./themes/GreyTheme.scss" as grey-theme;
+@use "./themes/LilacTheme.scss" as lilac-theme;
+@use "./themes/LimeTheme.scss" as lime-theme;
+@use "./themes/KhakiTheme.scss" as khaki-theme;
+@use "./themes/OliveTheme.scss" as olive-theme;
+@use "./themes/YellowTheme.scss" as yellow-theme;
+
+:root {
+  .blueGreyTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: blue-grey-theme.$primary-palette,
+        tertiary: blue-grey-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-primary), var(--mat-sys-primary-container)),
+      container-text-color: light-dark(var(--mat-sys-on-primary), var(--mat-sys-on-surface)),
+      title-text-size: xx-large
+    ));
+  }
+  
+  .brickTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: brick-theme.$primary-palette,
+        tertiary: brick-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-primary), var(--mat-sys-primary-container)),
+      container-text-color: light-dark(var(--mat-sys-on-primary), var(--mat-sys-on-surface)),
+      title-text-size: xx-large
+    ));
+  }
+  
+  .brownTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: brown-theme.$primary-palette,
+        tertiary: brown-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-primary), var(--mat-sys-primary-container)),
+      container-text-color: light-dark(var(--mat-sys-on-primary), var(--mat-sys-on-surface)),
+      title-text-size: xx-large
+    ));
+  }
+  
+  .greenTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: green-theme.$primary-palette,
+        tertiary: green-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-primary), var(--mat-sys-on-primary)),
+      container-text-color: light-dark(var(--mat-sys-on-primary), var(--mat-sys-on-surface)),
+      title-text-size: xx-large
+    ));
+  }
+  
+  .greyTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: grey-theme.$primary-palette,
+        tertiary: grey-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-outline), var(--mat-sys-surface-variant)),
+      container-text-color: light-dark(var(--mat-sys-on-primary), var(--mat-sys-on-surface)),
+      title-text-size: xx-large
+    ));
+  }
+
+  .lilacTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: lilac-theme.$primary-palette,
+        tertiary: lilac-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-surface-tint), var(--mat-sys-primary-container)),
+      container-text-color: light-dark(var(--mat-sys-on-primary), var(--mat-sys-on-surface)),
+      title-text-size: xx-large
+    ));
+  }
+
+  .limeTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: lime-theme.$primary-palette,
+        tertiary: lime-theme.$tertiary-palette
+      ),
+      // typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: var(--mat-sys-tertiary-fixed),
+      container-text-color: var(--mat-sys-on-primary-fixed),
+      // container-background-color: var(--mat-sys-primary),
+      // container-text-color: var(--mat-sys-on-primary),
+      title-text-size: xx-large
+    ));
+  }
+
+  .khakiTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: khaki-theme.$primary-palette,
+        tertiary: khaki-theme.$tertiary-palette
+        ),
+        // typography: Roboto,
+        density: -1
+      ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-primary-fixed-dim), var(--mat-sys-primary-fixed-dim)),
+      container-text-color: light-dark(var(--mat-sys-on-primary-fixed), var(--mat-sys-on-primary-fixed)),
+      title-text-size: xx-large
+    ));
+  }
+      
+  .oliveTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: olive-theme.$primary-palette,
+        tertiary: olive-theme.$tertiary-palette
+      ),
+      typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-tertiary-fixed-dim), var(--mat-sys-tertiary-fixed-dim)),
+      container-text-color: light-dark(var(--mat-sys-on-primary-fixed), var(--mat-sys-on-primary-fixed)),
+      title-text-size: xx-large
+    ));
+  }
+
+  .yellowTheme {
+    color-scheme: light dark;
+    @include mat.theme((
+      color: (
+        primary: yellow-theme.$primary-palette,
+        tertiary: yellow-theme.$tertiary-palette
+      ),
+      typography: Roboto,
+      density: -1
+    ));
+    @include mat.toolbar-overrides((
+      container-background-color: light-dark(var(--mat-sys-primary-container), var(--mat-sys-primary)),
+      container-text-color: light-dark(var(--mat-sys-on-primary-fixed), var(--mat-sys-on-primary-fixed)),
+      title-text-size: xx-large
+    ));
+  }
+    
+  @include mat.tabs-overrides((
+    active-indicator-height: 5px,
+    divider-height: 3px,
+    inactive-hover-label-text-color: var(--mat-sys-error),
+  ));
+  @include mat.select-overrides((
+    panel-background-color: var(--mat-sys-surface-container),
+  ));
+  @include mat.slider-overrides((
+    active-track-height: 8px,
+    inactive-track-height: 8px,
+    inactive-track-color: rgb(98, 98, 100),
+  ));
+
+  mat-tab-header {
+    height: 50px !important;
+  }
+  .mdc-tab:hover {
+    background-color: light-dark(var(--mat-sys-surface-dim), var(--mat-sys-outline));
+  } 
+  mat-label {
+    font-weight: bold;
+    font-size: 12px;
+    color: var(--mat-sys-primary);
+  }
+
+  mat-slider {
+    min-width: 80px !important;
+  }
+  .mat-mdc-select-panel {
+    max-height: 400px !important;
+  }
+
+  button {
+    color: var(--mat-sys-on-primary-container) !important;
+    background-color: var(--mat-sys-surface-variant) !important;
+  }
+
+  .mdc-icon-button {
+    height: 24px !important;
+    width: 24px !important;
+    margin-top: 10px !important;
+    padding: 0 !important;
+  }
+
+  .lightTheme {
+    color-scheme: light;
+  }
+  .darkTheme {
+    color-scheme: dark;
+  }
+
+  //-- fonts...
+  //
+    @font-face {
+  	font-family: 'AlegreyaSans';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./fonts/AlegreyaSans-Light.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'AlegreyaSans';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/AlegreyaSans-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'AlegreyaSans';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./fonts/AlegreyaSans-Bold.woff) format('woff');
+  }
+
+  @font-face {
+  	font-family: 'AlegreyaSansSC';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./fonts/AlegreyaSansSC-Light.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'AlegreyaSansSC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/AlegreyaSansSC-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'AlegreyaSansSC';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./fonts/AlegreyaSansSC-Medium.woff) format('woff');
+  }
+
+  @font-face {
+  	font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./fonts/Barlow-Light.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Barlow-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'Barlow';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./fonts/Barlow-Medium.woff) format('woff');
+  }
+
+  @font-face {
+  	font-family: 'Charm';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Charm-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'Charm';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./fonts/Charm-Bold.woff) format('woff');
+  }
+
+  @font-face {
+  	font-family: 'Diplomata';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Diplomata-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'DiplomataSC';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/DiplomataSC-Regular.woff) format('woff');
+  }
+
+  @font-face {
+  	font-family: 'MPLUS1';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./fonts/MPLUS1Code-Light.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'MPLUS1';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/MPLUS1Code-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'MPLUS1';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./fonts/MPLUS1Code-Bold.woff) format('woff');
+  }
+
+  @font-face {
+  	font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./fonts/Roboto-Light.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/Roboto-Regular.woff) format('woff');
+  }
+  @font-face {
+  	font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./fonts/Roboto-Medium.woff) format('woff');
+  }
+
+  // font-family: 'AlegreyaSans';
+  // font-family: 'AlegreyaSansSC';
+  font-family: 'Barlow';
+  // font-family: 'Charm';
+  // font-family: 'Diplomata';
+  // font-family: 'DiplomataSC';
+  // font-family: 'MPLUS1';
+  // font-family: 'Roboto';
+
+
+  //-- icons...
+  //
+  // @font-face {
+  //   font-family: 'Material Icons';
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   src: url(./fonts/MaterialIcons-Regular.woff) format('woff');
+  // }
+  // .material-icons {
+  //   font-family: 'Material Icons';
+  //   font-weight: normal;
+  //   font-style: normal;
+  //   font-size: 24px;
+  //   display: inline-block;
+  //   line-height: 1;
+  //   text-transform: none;
+  //   letter-spacing: normal;
+  //   word-wrap: normal;
+  //   white-space: nowrap;
+  //   direction: ltr;
+  
+  //   /* // Support for all WebKit browsers. */
+  //   -webkit-font-smoothing: antialiased;
+  //   /* // Support for Safari and Chrome. */
+  //   text-rendering: optimizeLegibility;
+  
+  //   /* // Support for Firefox. */
+  //   -moz-osx-font-smoothing: grayscale;
+  
+  //   /* // Support for IE. */
+  //   font-feature-settings: 'liga';
+  // }
+  
+  //-- theme scroll bars...
+  //
+  * {
+    scrollbar-color: var(--mat-sys-primary) var(--mat-sys-outline-variant);
+    scrollbar-width: auto;
+  }
+  ::-webkit-scrollbar {
+    width: 19px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: var(--mat-sys-outline-variant);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--mat-sys-outline-variant);
+    border-radius: 4px;
+  }
+  
+  //-- get rid of <input type="number"> spinners...
+  // Chrome, Safari, Edge, Opera...
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  // Firefox...
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+}

@@ -1,0 +1,28 @@
+
+<mat-sidenav-container class="wrapper">
+  <mat-sidenav-content>
+
+    <mat-toolbar>
+      <h1>{{title()}}</h1>
+      <app-theme-switcher></app-theme-switcher>
+      <button matButton="elevated" matTooltip="Show the project help..." (click)="showHelpFlag.set(true)">?</button>
+    </mat-toolbar>
+
+    <div class="mainContentContainer">
+  		<!-- <app-synth #synth1></app-synth> -->
+  		<!-- <app-synth #synth2></app-synth> -->
+  		<app-synth #synth1 [ctx]="audioCtx1" [dest]="audioCtx1.destination"></app-synth>
+  		<app-synth #synth2 [ctx]="audioCtx2" [dest]="audioCtx2.destination"></app-synth>
+  	<!-- </div> -->
+      @if(showHelpFlag()) {
+        <div class="helpContainer">
+          <button matButton="elevated" extended (click)="showHelpFlag.set(false)">Close</button>
+          <app-help></app-help>
+        </div>
+      }
+
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

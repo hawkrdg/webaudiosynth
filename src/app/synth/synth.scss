@@ -1,0 +1,60 @@
+@use '@angular/material' as mat;
+
+.synthContainer {
+  margin: 20px 20px 0;
+	width: 450px;
+	padding: 10px;
+	border: 4px solid;
+	border-radius: 20px;
+	text-align: center;
+}
+
+.synthBanner {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 18px;
+}
+
+mat-form-field {
+  height: 70px;
+	width: 160px;
+  margin-top: 5px;
+}
+
+hr {
+	height: 3px;
+	width: 95%;
+	margin: 0 auto;
+  background-color: var(--mat-sys-primary);
+}
+.powerControl {
+	height: 40px;
+	padding: 5px 15px;
+}
+
+.controlContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.oscillatorControls {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+}
+mat-slider {
+	width: 160px;
+}
+.sliderHorizContainer {
+	height: 70px;
+	width: 250px;
+	padding-top: 10px;
+	text-align: right;
+}
+
+.frequencyControl, .waveformControl, .levelControl, .panControl {
+	height: 58px;
+	padding: 5px 10px;
+}
+
+

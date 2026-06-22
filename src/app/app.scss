@@ -1,0 +1,34 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80px;
+  font-size: 16px;
+}
+mat-toolbar app-theme-switcher {
+  position: absolute;
+  top: 0px;
+  right: 120px;
+}
+
+.mainContentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: calc(100vh - 80px);
+}
+
+.helpContainer {
+  position: absolute;
+  height: calc(100vh - 140px);
+  width: calc(100vw - 60px);
+  border: 2px solid;
+  top: 110px;
+  left: 30px;
+  background-color: var(--mat-sys-surface-container);
+  z-index: 100;
+}
+.helpContainer button {
+  height: 32px;
+  margin: 20px 30px;
+}
