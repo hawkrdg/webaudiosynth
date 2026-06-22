@@ -160,7 +160,7 @@ export class Synth {
 		this.amLfoGain.gain.value = this.synthLevel.gain.value * this.amGainPercent / 100;
 	}
 	updateAMPeriod(): void {
-		this.amLfoOscillator.frequency.value = this.amPeriod;
+		this.amLfoOscillator.frequency.value = 1 / this.amPeriod;
 	}
 
 
@@ -183,7 +183,7 @@ export class Synth {
 		this.fmLfoGain.gain.value = this.synthOscillator.frequency.value * this.fmGainPercent / 100;
 	}
 	updateFMPeriod(): void {
-		this.fmLfoOscillator.frequency.value = this.fmPeriod;
+		this.fmLfoOscillator.frequency.value = 1 / this.fmPeriod;
 	}
 
 
@@ -200,6 +200,6 @@ export class Synth {
     return value.toFixed(0) + '%';
   }
   formatSliderLabelFrequency(value: number): string {
-    return value.toFixed(1) + 'Hz';
+    return value.toFixed(1) + 'S';
   }
 }
